@@ -1,13 +1,12 @@
-package com.example.dao;
+package com.example;
+
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import com.example.bean.BoardVO;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 public class BoardDAO {
 	
@@ -54,6 +53,7 @@ public class BoardDAO {
 				BoardVO data = new BoardVO();
 				data.setSeq(rs.getInt("seq"));
 				data.setTitle(rs.getString("title"));
+				data.setContent(rs.getString("content"));
 				data.setRegdate(rs.getDate("regdate"));
 				data.setWriter(rs.getString("writer"));
 				return data;
